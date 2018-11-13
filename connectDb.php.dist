@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @return mysqli
+ */
+function getDbConnection(): mysqli
+{
+    $dbServer = "fill";  // fill in the data
+    $dbUsername = "fill";  // fill in the data
+    $dbPassword = "fill";  // fill in the data
+    $dbName = "fill";  // fill in the data
+
+    $conn = new mysqli($dbServer, $dbUsername, $dbPassword, $dbName);
+    $conn->query("SET CHARSET UTF8");
+    if ($conn->connect_error) {
+        die("DB error: " . $conn->errno);
+    }
+    return $conn;
+}
